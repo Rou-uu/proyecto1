@@ -19,6 +19,7 @@ public class ArbolBinarioCompleto<T> extends ArbolBinario<T> {
         /* Inicializa al iterador. */
         private Iterador() {
             // Aquí va su código.
+            return new Iterador;
         }
 
         /* Nos dice si hay un elemento siguiente. */
