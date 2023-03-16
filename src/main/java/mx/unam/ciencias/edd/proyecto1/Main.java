@@ -1,6 +1,7 @@
 
-package mx.unam.ciencias.edd;
+package mx.unam.ciencias.edd.proyecto1;
 
+import mx.unam.ciencias.edd.*;
 import java.io.*;
 
 public class Main {
@@ -25,7 +26,7 @@ public class Main {
 
 		//Leer archivos en la linea de comandos o entrada estandar
 		try {
-			Lista <String> archivos = new Lista <String>();
+			Lista <String> archivos = new Lista <String>(); //Lista para todos los archivos de la entrada de comandos
 
 			for (int i = 0; i < args.length; i++) {
 				if (args[i].contains(".txt")) {
@@ -37,7 +38,7 @@ public class Main {
 
 			Lista<Frase> frases = new Lista<Frase>();
 
-			if (archivos.esVacia()) {
+			if (archivos.esVacia()) { //Si esta vacia la Lista de archivos, buscara en la entrada estandar
 				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 				String temp = null;
 
@@ -48,7 +49,7 @@ public class Main {
 				reader.close();
 			}
 
-			if (!archivos.esVacia()) {
+			if (!archivos.esVacia()) { //Busca los archivos en la entrada de comandos
 				// Auxiliares para leer el archivo
 				BufferedReader reader = new BufferedReader(new FileReader(archivos.getPrimero()));;
 				String temp = null;
@@ -63,16 +64,15 @@ public class Main {
 				reader.close();
 			}
 
-			Lista <Frase> r = frases.mergeSort(frases);
+			Lista <Frase> r = frases.mergeSort(frases); //Ordena
 
-			if (verifyFlagR(args))
+			if (verifyFlagR(args)) //Verifica la bandera de reversa
 				r = r.reversa();
 
 			int pos;
-
-			if ((pos = verifyFlagO(args)) > 0) {
+			if ((pos = verifyFlagO(args)) > 0) { //En caso de la bandera -o, se escribe un nuevo archivo con el nombre que esta inmediatamente a la derecha de la bandera: -o <Archivo.txt>
 				String directorio = new File(".").getAbsolutePath();
-				String ident = args[pos];
+				String ident = args[pos]; //Aqui se agarra el nombre
 
 				File fichero = new File(directorio, ident);
 				BufferedWriter writer = new BufferedWriter(new FileWriter(fichero));

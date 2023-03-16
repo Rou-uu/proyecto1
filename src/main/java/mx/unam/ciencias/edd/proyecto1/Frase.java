@@ -1,5 +1,7 @@
 
-package mx.unam.ciencias.edd;
+package mx.unam.ciencias.edd.proyecto1;
+
+import mx.unam.ciencias.edd.*;
 
 public class Frase implements Comparable<Frase> {
 	private String contenido, normalizado;
