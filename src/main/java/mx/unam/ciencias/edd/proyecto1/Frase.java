@@ -70,6 +70,7 @@ public class Frase implements Comparable<Frase> {
     	temp = temp.replaceAll("[íïìî]", "i");
     	temp = temp.replaceAll("[óöòô]", "o");
     	temp = temp.replaceAll("[úüùû]", "u");
+    	temp = temp.replaceAll("ñ", "n");
 		temp = temp.replaceAll(" ", "");
 		temp = temp.replaceAll("[^a-z,^A-Z,^0-9]", "");
 		temp = temp.trim();
