@@ -22,6 +22,8 @@ public class Main {
 	}
 
 	public static void main(String [] args) throws IOException {
+
+		//Leer archivos en la linea de comandos o entrada estandar
 		try {
 			Lista <String> archivos = new Lista <String>();
 
@@ -33,20 +35,32 @@ public class Main {
 				}
 			}
 
-			if (archivos.esVacia())
-				throw new FileNotFoundException();
-
-			// Auxiliares para leer el archivo
-			BufferedReader reader = new BufferedReader(new FileReader(archivos.getPrimero()));;
 			Lista<Frase> frases = new Lista<Frase>();
-			String temp = null;
 
+			if (archivos.esVacia()) {
+				BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				String temp = null;
 
-			for (int i = 0; i < archivos.getLongitud(); i++) {
-				reader = new BufferedReader(new FileReader(archivos.get(i)));
 				while ((temp = reader.readLine()) != null) {
 					frases.agregaFinal(new Frase(temp));
 				}
+
+				reader.close();
+			}
+
+			if (!archivos.esVacia()) {
+				// Auxiliares para leer el archivo
+				BufferedReader reader = new BufferedReader(new FileReader(archivos.getPrimero()));;
+				String temp = null;
+
+				for (int i = 0; i < archivos.getLongitud(); i++) {
+					reader = new BufferedReader(new FileReader(archivos.get(i)));
+					while ((temp = reader.readLine()) != null) {
+						frases.agregaFinal(new Frase(temp));
+					}
+				}
+
+				reader.close();
 			}
 
 			Lista <Frase> r = frases.mergeSort(frases);
@@ -68,6 +82,8 @@ public class Main {
 
 				writer.close();
 
+				System.out.println("El archivo se creo en la direccion: " + directorio);
+
 				return;
 
 			}
@@ -75,10 +91,9 @@ public class Main {
 			for (Frase f : r)
 				System.out.println(f);
 
-			reader.close();
 
 		} catch (FileNotFoundException e) {
-			System.out.println("Lo siento, no se encontro su archivo, intente agregarlo en la linea de comandos o desde el codigo");
+			System.out.println("Lo siento, no se encontro su archivo");
 		}
 	}
 }
