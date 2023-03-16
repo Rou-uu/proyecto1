@@ -5,19 +5,18 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>mx.unam.ciencias.edd</groupId>
-  <artifactId>practica</artifactId>
+  <artifactId>proyecto1</artifactId>
   <version>EDD</version>
   <packaging>jar</packaging>
 
-  <name>Práctica 3</name>
+  <name>Proyecto 1</name>
   <description>
-    Práctica 3 de Estructuras de Datos: Árboles binarios, binarios completos y
-    binarios ordenados.
+    Proyecto 1 de Estructuras de Datos: Comando Sort de Linux en Java
   </description>
   <url>https://aztlan.fciencias.unam.mx/gitlab/2023-2-edd/practica3</url>
   <organization>
-    <name>Canek Peláez Valdés</name>
-    <url>https://aztlan.fciencias.unam.mx/~canek/</url>
+    <name>José Rubén Alfaro González</name>
+    <url>https://github.com/Rou-uu</url>
   </organization>
 
   <properties>
@@ -70,7 +69,7 @@
 	<configuration>
 	  <archive>
 	    <manifest>
-	      <mainClass>mx.unam.ciencias.edd.Practica3</mainClass>
+	      <mainClass>mx.unam.ciencias.edd.Main</mainClass>
 	    </manifest>
 	  </archive>
 	</configuration>
@@ -90,7 +89,7 @@
 
     </plugins>
 
-    <finalName>practica3</finalName>
+    <finalName>proyecto1</finalName>
   </build>
 
   <reporting>
